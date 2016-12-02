@@ -20,7 +20,7 @@ module.exports = class {
 
   nextChar() {
     this.index++;
-    if (this.index >= this.html.length) return undefined
+    if (this.index >= this.html.length) return undefined;
     return this.currentChar();
   }
 
@@ -29,7 +29,8 @@ module.exports = class {
     return this.html.slice(start, end);
   }
 
-  peek(offset = 1) {
+  peek(offset) {
+  	offset = offset == undefined ? 1 : offset;
     return this.html[this.index + offset];
   }
 
