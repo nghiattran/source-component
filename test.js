@@ -4,7 +4,7 @@ let assert = require('assert');
 let SourceComponent = require('./');
 
 let text = 'Hello world! This is a testing string.'
-
+console.log(SourceComponent.isDigit(6));
 describe('test', function(){
   it('loop through', function() {
     let source = new SourceComponent(text);
@@ -108,5 +108,69 @@ describe('test', function(){
   it('check length', function() {
     let source = new SourceComponent(text);
     assert(source.length() === text.length);
+  });
+
+  it('is nunber', function() {
+    assert(SourceComponent.isNumber(565) === true);
+  });
+
+  it('is nunber fail', function() {
+    assert(SourceComponent.isNumber('5') === false);
+  });
+
+  it('is digit', function() {
+    assert(SourceComponent.isDigit(6) === true);
+  });
+
+  it('is digit: number', function() {
+    assert(SourceComponent.isDigit(656) === false);
+  });
+
+  it('is digit: alphabetic char', function() {
+    assert(SourceComponent.isDigit('a') === false);
+  });
+
+  it('is digit: numeric char', function() {
+    assert(SourceComponent.isDigit('5') === true);
+  });
+
+  it('is digit: numeric string', function() {
+    assert(SourceComponent.isDigit('556') === false);
+  });
+
+  it('is digit: string', function() {
+    assert(SourceComponent.isDigit('asdsa') === false);
+  });
+
+  it('is letter', function() {
+    assert(SourceComponent.isLetter('a') === true);
+  });
+
+  it('is letter: string', function() {
+    assert(SourceComponent.isLetter('aadsd') === false);
+  });
+
+  it('is letter: number', function() {
+    assert(SourceComponent.isLetter(6565) === false);
+  });
+
+  it('is letter: digit', function() {
+    assert(SourceComponent.isLetter(5) === false);
+  });
+
+  it('is letter or digit: letter', function() {
+    assert(SourceComponent.isLetterOrDigit('f') === true);
+  });
+
+  it('is letter or digit: digit', function() {
+    assert(SourceComponent.isLetterOrDigit(5) === true);
+  });
+
+  it('is letter or digit: number', function() {
+    assert(SourceComponent.isLetterOrDigit(565) === false);
+  });
+
+  it('is letter or digit: string', function() {
+    assert(SourceComponent.isLetterOrDigit('asd') === false);
   });
 });

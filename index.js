@@ -52,4 +52,20 @@ module.exports = class {
   length() {
     return this.html.length;
   }
+
+  static isNumber(value) {
+    return typeof value === 'number';
+  }
+
+  static isDigit(n) {
+    return !isNaN(parseFloat(n)) && isFinite(n) && (n.length === 1 || (n < 10 && n > 0));
+  }
+
+  static isLetter(char) {
+    return /^[a-zA-Z]/.test(char) && char.length === 1;
+  }
+
+  static isLetterOrDigit(char) {
+    return this.isDigit(char) || this.isLetter(char);
+  }
 }
