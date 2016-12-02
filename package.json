@@ -8,7 +8,7 @@
     "cover": "istanbul cover ./node_modules/mocha/bin/_mocha --report html -- -R spec"
   },
   "engines": {
-    "node": ">=0.10.0"
+    "node": ">=4.0.0"
   },
   "files": [
     "index.js"

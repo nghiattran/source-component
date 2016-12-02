@@ -24,7 +24,8 @@ module.exports = class {
     return this.currentChar();
   }
 
-  getSubstring(start, end = this.html.length) {
+  getSubstring(start, end) {
+  	end = end || this.html.length;
     return this.html.slice(start, end);
   }
 
