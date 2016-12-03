@@ -3,8 +3,8 @@
 let assert = require('assert');
 let SourceComponent = require('./');
 
-let text = 'Hello world! This is a testing string.'
-console.log(SourceComponent.isDigit(6));
+let text = 'Hello world! This is a testing string.';
+
 describe('test', function(){
   it('loop through', function() {
     let source = new SourceComponent(text);
@@ -172,5 +172,29 @@ describe('test', function(){
 
   it('is letter or digit: string', function() {
     assert(SourceComponent.isLetterOrDigit('asd') === false);
+  });
+
+  it('is special char: string', function() {
+    assert(SourceComponent.isSpecialCharacter('asd') === false);
+  });
+
+  it('is special char: string', function() {
+    assert(SourceComponent.isSpecialCharacter('#65') === false);
+  });
+
+  it('is special char: number', function() {
+    assert(SourceComponent.isSpecialCharacter(565) === false);
+  });
+
+  it('is special char: digit', function() {
+    assert(SourceComponent.isSpecialCharacter(5) === false);
+  });
+
+  it('is special char: #', function() {
+    assert(SourceComponent.isSpecialCharacter('#') === true);
+  });
+
+  it('is special char: !', function() {
+    assert(SourceComponent.isSpecialCharacter('!') === true);
   });
 });

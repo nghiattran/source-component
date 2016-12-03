@@ -68,4 +68,8 @@ module.exports = class {
   static isLetterOrDigit(char) {
     return this.isDigit(char) || this.isLetter(char);
   }
+
+  static isSpecialCharacter(char) {
+    return typeof char === 'string' && /[~`!#$%\^&*+=\-\[\]\\';,/{}|\\":<>\?]/g.test(char) && char.length === 1;
+  }
 }
